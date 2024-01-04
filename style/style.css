@@ -1,0 +1,150 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+#Container {
+    display: flex;
+    width: 100%;
+}
+nav {
+    background-color: #444;
+    overflow: hidden;
+}
+
+nav a {
+
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: rgba(245, 245, 245, 0.658);
+}
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+#search-container {
+    margin-top: 20px;
+    text-align: center;
+}
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+/* #products div{
+  width: 800px;
+  height: 1000px;
+}
+ */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+#products img{
+  height: 400px;
+  width: 400px;
+
+}
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.514);
+}
+
+.image-container {
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    padding: 10px;
+}
+
+.product-name {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.price {
+    margin: 0;
+    color: #555;
+}
+
+#products button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+#cart-items button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    border-radius: 4px;
+    margin:  10px 3px 0px 3px;
+}
+#cart-items button:hover{
+    background-color: rgba(11,147,129);
+}
+button:hover {
+    background-color: #45a049;
+}
+
+#cart-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+}
+
+#cart-items img {
+    width: 50px;
+    height: auto;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

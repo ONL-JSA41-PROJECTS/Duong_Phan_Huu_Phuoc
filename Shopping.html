@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>EHHEHHEHHE</title>
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            
+        }
+
+        #Container {
+            display: flex;
+            width: 100%;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #444;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: rgba(245, 245, 245, 0.658);
+        }
+
+        #search-container {
+            margin-top: 20px;
+            text-align: center;
+            width: 70%;
+        }
+
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            width: 70%;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        #products img {
+            height: 400px;
+            width: 400px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #cart-container {
+            border: 1px solid black;
+            border-radius: 10px;
+            position: relative;
+            margin-top: 20px;
+            text-align: center;
+            width: 30%;
+        }
+        #search-container {
+            text-align: center;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        #search-input {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        #search-input:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+        
+        #search-container button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #search-container button:hover {
+            background-color: #0056b3;
+        }
+        
+
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #cart-items img {
+            width: 50px;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        #cart-items div:hover{
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+        }
+        #cart-container {
+            position: fixed;
+            top: 280px;
+            right: 20px;
+            text-align: center;
+            width: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        #item-checkout-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        #item-checkout-modal.show {
+            display: block;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #item-checkout-modal {
+            background-color: rgba(0, 0, 0, 0.5); /* Một lớp phủ mờ nền */
+        }
+        
+        .modal-content {
+            max-width: 400px; /* Điều chỉnh độ rộng của modal */
+            margin: auto;
+        }
+        .modal-content button{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 25%;
+            border-radius: 4px;
+            margin:  10px 3px 0px 3px;
+
+        }
+        #customer-info {
+            margin-top: 20px;
+        }
+        
+        #customer-info label,
+        #customer-info input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        #customer-info input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        /* cart-container */
+        #cart-container h2 {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+
+        
+        #cart-items button:hover {
+            background-color: #0056b3;
+        }
+        #login-register-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: flex;
+            justify-content:center;
+            margin-top: 20px;
+        }
+        
+        #login-form, #register-form {
+            display: none;
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+        }
+        
+        #login-form label, #register-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        #login-form input, #register-form input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        #login-form button, #register-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        #login-form button:hover, #register-form button:hover {
+            background-color: #45a049;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+        /* CSS (styles.css) */
+
+
+    #login-form,
+    #register-form {
+        display: none;
+    }
+
+/* ... (các phần CSS khác) */
+#user-info {
+    display: none;
+    align-items: center;
+    padding: 10px;
+}
+
+#user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#user-name {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Adjust the color as needed */
+}
+
+#user-info button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#user-info button:hover {
+    background-color: #45a049;
+}
+
+/* Add a bit of space between user info and buttons */
+#user-info button + button {
+    margin-left: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EHHEHHEHHE</h1>
+    </header>
+    <nav>
+        <a href="./Shopping.html">Trang chu</a>
+        <a href="./ShoppingCart.html">Gio hang</a>
+        <a href="#" onclick="showLoginForm()" id="LOG">Đăng nhập</a>
+        <a href="#" onclick="showRegisterForm()" id="SIGU">Đăng ký</a>
+        <div id="user-info" style="display: none;">
+            <img id="user-avatar" src="" alt="User Avatar" width="50">
+            <h3 id="user-name"></h3>
+            <button onclick="logout()">Đăng xuất</button>
+        </div>
+    </nav>
+    
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button onclick="searchProducts()">Tìm Kiếm sản phẩm</button>
+    </div>
+    <div id="Container">
+        <div id="products">
+            <!-- Product cards will be dynamically added here using JavaScript -->
+        </div>
+       <!-- Thêm vào div #cart-container -->
+    <div id="cart-container">
+        <h2>Giỏ hàng</h2>
+        <ul id="cart-items"></ul>
+        <button onclick="checkoutAll()">Thanh toán toàn bộ giỏ hàng</button>
+        <button onclick="clearAllCart()">Xoá toàn bộ món hàng</button>
+    </div>
+
+    <div id="item-checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeItemCheckoutModal()">&times;</span>
+            <h2>Thanh toán món hàng</h2>
+            <div id="item-checkout-details"></div>
+            <div id="customer-info">
+                <label for="customer-name">Họ và tên:</label>
+                <input type="text" id="customer-name">
+
+                <label for="customer-phone">Số điện thoại:</label>
+                <input type="tel" id="customer-phone">
+
+                <label for="customer-email">Email:</label>
+                <input type="email" id="customer-email">
+
+                <label for="customer-address">Địa chỉ:</label>
+                <input type="text" id="customer-address">
+            </div>
+        </div>
+    </div>
+
+    <div id="login-register-container">
+        <div id="login-form">
+            <span class="close" onclick="closeLoginForm()">&times;</span>
+            <h3 style="text-align: center;">Đăng nhập</h3>
+            <label for="login-username">Tên đăng nhập:</label>
+            <input type="text" id="login-username" placeholder="Nhập tên đăng nhập">
+
+            <label for="login-password">Mật khẩu:</label>
+            <input type="password" id="login-password" placeholder="Nhập mật khẩu">
+
+
+            <button onclick="login()">Đăng nhập</button>
+        </div>
+
+        <div id="register-form">
+            
+            <span class="close" onclick="closeRegisterForm()">&times;</span>
+            <h3 style="text-align: center;">Đăng ký</h3>
+            <label for="register-username" >Tên đăng ký mới:</label>
+            <input type="text" id="register-username" placeholder="Nhập tên đăng ký mới">
+
+            <label for="register-password">Mật khẩu mới:</label>
+            <input type="password" id="register-password" placeholder="Nhập mật khẩu mới">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" placeholder="Nhập email mới">
+
+            <button onclick="register()">Đăng ký</button>
+        </div>
+    </div>
+    
+
+    <script src="./cod/code.js"></script>
+    <script>
+    </script>
+</body>
+</html>
