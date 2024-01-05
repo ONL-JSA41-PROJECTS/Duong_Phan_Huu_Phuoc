@@ -10,7 +10,7 @@ let products = {
         {
             productName: "Trang phục cosplay Ei/Makoto Kiemono",
             stock: true,
-            Numbers: 5+10,
+            Numbers: 15, // Thay đổi giá trị này từ 5+10 sang 15
             price: "950K",
             image: "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-li3hp1ud4n9u59"
         }, 
@@ -26,8 +26,16 @@ let products = {
             stock: false,
             Numbers: 0,
             price: "850K",
-            image: "https://down-vn.img.susercontent.com/file/sg-11134201-7qvdx-ljsg0v187klmc5"
-        }, 
+            image: "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lhaqi10x0yqn5b"
+        },
+        {
+            productName:"Trang phục cosplay Kaedehara Kazuha (full)",
+            stock: true,
+            Numbers: 3,
+            price: 1200 ,
+            image: "https://down-vn.img.susercontent.com/file/th-11134201-7qukz-lev01badye4x1a"
+        },
+        // Thêm một món hàng mới
     ]
 };
 
