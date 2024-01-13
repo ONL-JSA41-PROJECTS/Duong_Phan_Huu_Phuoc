@@ -150,10 +150,10 @@
             color: white;
             text-align: center;
             padding: 1em;
-            position: fixed;
             width: 100%;
-            bottom: 0;
+            /* Remove the "position: fixed;" and "bottom: 0;" properties */
         }
+        
         #cart-items div:hover{
             box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
         }
@@ -367,8 +367,79 @@
 #user-info button + button {
     margin-left: 10px;
 }
+#cart-container button {
+    background-color: #4CAF50; /* Màu nền của nút thanh toán và xoá giỏ hàng */
+    color: white; /* Màu chữ trên nút */
+    padding: 10px; /* Kích thước padding */
+    border: none; /* Loại bỏ đường viền */
+    cursor: pointer; /* Hình con trỏ khi rê chuột */
+    border-radius: 4px; /* Bo góc của nút */
+    margin-top: 10px; /* Khoảng cách giữa các nút */
+}
+
+#cart-container button:hover {
+    background-color: #45a049; /* Màu nền khi di chuột qua nút */
+}
+
+#detail-container {
+
+    position: fixed;
+    max-width: 300px; /* Điều chỉnh độ rộng tối đa nếu cần */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+body {
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#Container {
+    flex: 1; /* Let the Container take the remaining space */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+}
+
+#social-icons {
+    position: fixed;
+    bottom: 85px;
+    right: 35px;
+    flex-direction: row;
+}
+
+#social-icons a {
+    margin-left: 10px;
+    display: block;
+}
+
+#social-icons img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#social-icons img:hover {
+    transform: scale(1.1);
+}
 
     </style>
+    
+    <!-- Messenger Plugin chat Code -->
+
+
+
+
+
 </head>
 <body>
     <header>
@@ -391,15 +462,21 @@
         <button onclick="searchProducts()">Tìm Kiếm sản phẩm</button>
     </div>
     <div id="Container">
-        <div id="products">
+        <div>
+            <div id="products" style="margin-bottom: 35px ;">
             <!-- Product cards will be dynamically added here using JavaScript -->
+            </div>
+            <footer>
+                <p>&copy; 2024 EHHEHHEHHE . All rights reserved.</p>
+            </footer>
         </div>
        <!-- Thêm vào div #cart-container -->
     <div id="cart-container">
         <h2>Giỏ hàng</h2>
         <ul id="cart-items"></ul>
-        <button onclick="checkoutAll()">Thanh toán toàn bộ giỏ hàng</button>
-        <button onclick="clearAllCart()">Xoá toàn bộ món hàng</button>
+        <button onclick="resetLocalStorage()">Reset LocalStorage</button>
+        <button onclick="checkoutAll()" id="Checkoutnutton">Thanh toán toàn bộ giỏ hàng</button>
+        <button onclick="clearAllCart()" id="ClearAllCartButton">Xoá toàn bộ món hàng</button>
     </div>
 
     <div id="item-checkout-modal" class="modal">
@@ -452,10 +529,39 @@
             <button onclick="register()">Đăng ký</button>
         </div>
     </div>
-    
+    <div id="detail-container"></div>
+    <div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
 
     <script src="./cod/code.js"></script>
     <script>
     </script>
+
+    <div id="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100073303944575" target="_blank" title="Facebook"><img src="/img/2023_Facebook_icon.svg.webp" alt="Facebook"></a>
+        <a href="https://zalo.me/your-zalo-id" target="_blank" title="Zalo"><img src="/img/Icon_of_Zalo.svg.png" alt="Zalo"></a>
+    </div>
+    
 </body>
+<script src="https://tudongchat.com/js/chatbox.js"></script>
+<script>
+  const tudong_chatbox = new TuDongChat('fOopzRTLw6lhomiC5ALdg')
+  tudong_chatbox.initial()
+</script>
+<script>
+    function callPhoneNumber() {
+        // Replace 'your_phone_number' with the actual phone number you want to call
+        var phoneNumber = '0377095580';
+
+        // Construct the tel: URI to initiate the phone call
+        var telURI = 'tel:' + phoneNumber;
+
+        // Open the phone app with the constructed URI
+        window.open(telURI);
+    }
+</script>
 </html>
