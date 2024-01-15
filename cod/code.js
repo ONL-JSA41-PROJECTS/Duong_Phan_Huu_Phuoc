@@ -756,4 +756,8 @@ function handleSuccessfulLogin(username) {
     // Hiển thị nút giỏ hàng và thanh toán
     document.getElementById('cart-container').style.display = 'block';
     document.getElementById('checkout-all-button').style.display = 'block';
+
+    // Update avatar in localStorage
+    localStorage.setItem('userAvatar', 'https://cdn-icons-png.flaticon.com/512/8742/8742495.png');
 }
+
