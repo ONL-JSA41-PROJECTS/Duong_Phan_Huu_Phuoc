@@ -744,7 +744,7 @@ function handleSuccessfulLogin(username) {
     const userName = document.getElementById('user-name');
 
     // Đối với mục đích minh họa, bạn có thể đặt một ảnh đại diện mặc định
-    const defaultAvatarUrl = 'https://example.com/default-avatar.jpg';
+    const defaultAvatarUrl = 'https://cdn-icons-png.flaticon.com/512/8742/8742495.png';
 
     // Lấy ảnh đại diện người dùng từ localStorage hoặc đặt một ảnh mặc định
     const userAvatarUrl = localStorage.getItem('userAvatar') || defaultAvatarUrl;
